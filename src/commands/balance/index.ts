@@ -52,19 +52,20 @@ async function returnBalance(ethAddress: string) {
 }
 
 const balance = async (ctx: Context): Promise<void> => {
-  const ethAddressOrEns = ctx.message?.text?.replace('/balance', '').trim();
-  await ctx.reply(`addr: ${ethAddressOrEns}`);
   const keyPair = ctx.from ? await getKeyPair(ctx.from.toString()) : null;
-  if (ethAddressOrEns && ethAddressOrEns?.length > 0) {
-    const ensAddress = await client.getEnsAddress({ name: normalize(ethAddressOrEns) });
-    if (ensAddress !== null) {
-      await ctx.reply(await returnBalance(ensAddress));
-    } else {
-      const message = 'Error fetching balance';
-      await ctx.reply(message);
-    }
-  } else if (keyPair?.address) {
-    await returnBalance(keyPair?.address);
+  // if (ethAddressOrEns && ethAddressOrEns?.length > 0) {
+  //   const ensAddress = await client.getEnsAddress({ name: normalize(ethAddressOrEns) });
+  //   if (ensAddress !== null) {
+  //     await ctx.reply(await returnBalance(ensAddress));
+  //   } else {
+  //     const message = 'Error fetching balance';
+  //     await ctx.reply(message);
+  //   }
+  // } else 
+  if (keyPair?.address) {
+    await ctx.reply(await returnBalance(keyPair?.address));
+  } else {
+    await ctx.reply('Couldnt find keypair, try /generate');
   }
 }
 

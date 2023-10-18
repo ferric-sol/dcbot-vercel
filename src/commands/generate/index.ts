@@ -35,6 +35,7 @@ const getKeyPair = async (username: string): Promise<KeyPair | null> => {
 
 
 const generate = async (ctx: Context): Promise<void> => {
+  console.log('in generate');
   const username =  ctx.from?.toString();
   if(!username) {
     await ctx.reply('No username');
@@ -42,6 +43,7 @@ const generate = async (ctx: Context): Promise<void> => {
   }
 
   let keyPair = await getKeyPair(username);
+  console.log('in generate, keypair: ', keyPair);
   if(!keyPair) {
     await ctx.reply('Generating keypair...');
     const privateKey = generatePrivateKey();
@@ -61,6 +63,7 @@ const generate = async (ctx: Context): Promise<void> => {
   }
   try {
     const message = `✅ Key pair generated successfully:\n- Address: ${keyPair.address}`;
+    console.log('message: ', message);
     await ctx.reply(message);
   } catch (error) {
     await ctx.reply('failed to send message');

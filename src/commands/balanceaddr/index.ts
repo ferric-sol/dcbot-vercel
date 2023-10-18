@@ -57,6 +57,8 @@ const balanceaddr = async (ctx: Context): Promise<void> => {
     await ctx.reply(await returnBalance(ethAddress));
   } else if (keyPair?.address) {
     await ctx.reply(await returnBalance(keyPair?.address));
+  } else {
+    await ctx.reply('Couldnt find keypair, try /generate');
   }
 }
 

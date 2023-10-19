@@ -14,7 +14,7 @@ import {
 
 const menu = new Menu("zupass");
 
-menu.dynamic(() => {
+menu.dynamic(async () => {
   const range = new MenuRange();
   const appUrl = `${process.env.VERCEL_URL}`;
   const returnUrl = `${process.env.VERCEL_URL}/api/zucheck`;

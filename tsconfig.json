@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       "target": "ES2019",
-      "module": "ESNext", // or "ES6"
+      "module": "NodeNext", // or "ES6"
       "lib": ["ES2017", "ES7", "ES6"],
       "allowJs": true,
       "outDir": "./public",

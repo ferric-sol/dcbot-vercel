@@ -1,15 +1,17 @@
 {
     "compilerOptions": {
-        "target": "ES2019",
-        "module": "commonjs",
-        "lib": ["es2017", "es7", "es6"],
-        "allowJs": true,
-        "outDir": "./public",
-        "strict": true,
-        "baseUrl": ".",
-        "esModuleInterop": true,
-        "noImplicitAny": false,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
-    }
-}
+      "target": "ES2019",
+      "module": "ESNext", // or "ES6"
+      "lib": ["ES2017", "ES7", "ES6"],
+      "allowJs": true,
+      "outDir": "./public",
+      "strict": true,
+      "baseUrl": ".",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "nodenext"
+    },
+    "include": ["**/*.ts", "**/*.d.ts"], // Adjust the include paths based on your project structure
+    "exclude": ["node_modules"]
+  }
+  

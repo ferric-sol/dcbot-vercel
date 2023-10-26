@@ -1,4 +1,6 @@
-require("dotenv").config();
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 import commands from "./commands";
 import bot from "./core/bot";
@@ -24,11 +26,16 @@ menu.dynamic(async () => {
     description:
       "Fruitbot requests a zero-knowledge proof of your ticket to trade fruit"
   });
+  console.log('zupass url: ', proofUrl);
   menu.webApp('Validate proof', proofUrl);
 })
 
 bot.use(menu);
 bot.use(commands);
+bot.command("zupass", async (ctx) => {
+  // Send the menu.
+  await ctx.reply("Check out this menu:", { reply_markup: menu });
+});
 
 process.env.NODE_ENV === "development" ? development(bot) : production(bot);
 

@@ -5,7 +5,7 @@
     "main": "api/index.ts",
     "scripts": {
         "build": "tsc",
-	"dev": "nodemon --exec ts-node -P ./tsconfig.json src/index.ts",
+        "dev": "nodemon --exec ts-node -P ./tsconfig.json src/index.ts",
         "lint": "eslint . --cache --ext .ts,.js",
         "format": "prettier --write 'src/**/*.ts'"
     },
@@ -39,7 +39,10 @@
     },
     "devDependencies": {
         "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.20",
+        "@types/lodash": "^4.14.200",
         "@types/node": "^17.0.5",
+        "@types/uuid": "^9.0.6",
         "@typescript-eslint/eslint-plugin": "^5.8.1",
         "@typescript-eslint/parser": "^5.8.1",
         "eslint": "^8.5.0",
